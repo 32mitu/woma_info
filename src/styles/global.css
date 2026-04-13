@@ -1,0 +1,317 @@
+/*──────────────────────────────────────────────
+  WOMA Design System
+  Official amow palette (from design guideline)
+  
+  Pink:       #f3a8bb
+  Light Pink: #fae1e7
+  Blue:       #93c2e8
+  Cream:      #fdfbf0
+  Navy:       #30324f
+──────────────────────────────────────────────*/
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* Brand colors */
+  --pink:       #f3a8bb;
+  --pink-light: #fae1e7;
+  --blue:       #93c2e8;
+  --cream:      #fdfbf0;
+  --navy:       #30324f;
+
+  /* Semantic aliases */
+  --color-primary:   var(--pink);
+  --color-secondary: var(--blue);
+  --color-bg:        var(--cream);
+  --color-text:      var(--navy);
+  --color-text-sub:  #6b6d88;
+  --color-surface:   rgba(255, 255, 255, 0.75);
+
+  /* Typography */
+  --font: 'Zen Maru Gothic', 'Hiragino Maru Gothic Pro', sans-serif;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, var(--pink), var(--blue));
+  --gradient-cta:   linear-gradient(135deg, #f3a8bb 0%, #e890a8 50%, #93c2e8 100%);
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Animations ─── */
+@keyframes floatBubble {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+  50%      { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
+@keyframes amowBreathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.03); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ─── Utilities ─── */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-line {
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gradient-brand);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.section-label {
+  font-size: 12px;
+  color: var(--blue);
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: clamp(26px, 5vw, 40px);
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.section-sub {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: var(--color-text-sub);
+  line-height: 2;
+  max-width: 520px;
+  font-weight: 400;
+}
+
+/* ─── Navigation ─── */
+.nav-link {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  text-decoration: none;
+  padding: 6px 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+  letter-spacing: 0.04em;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--pink);
+}
+
+.nav-link.active {
+  color: var(--pink);
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-brand);
+  border-radius: 1px;
+}
+
+/* ─── Buttons ─── */
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 40px;
+  background: var(--gradient-cta);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 4px 24px rgba(243, 168, 187, 0.3),
+    0 2px 8px rgba(147, 194, 232, 0.2);
+  text-decoration: none;
+}
+
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 32px rgba(243, 168, 187, 0.4),
+    0 4px 12px rgba(147, 194, 232, 0.25);
+}
+
+.store-badge {
+  height: 42px;
+  opacity: 0.9;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 10px;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 7px;
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border: none;
+}
+
+.store-badge:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* ─── Persona grid ─── */
+.personas-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ─── Steps column connector ─── */
+.steps-col {
+  position: relative;
+}
+
+.steps-col::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 56px;
+  bottom: 56px;
+  width: 2px;
+  border-left: 2px dashed rgba(243, 168, 187, 0.4);
+  z-index: 0;
+}
+
+/* ─── FAQ accordion ─── */
+.faq-question-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  text-align: left;
+  color: var(--navy);
+  gap: 16px;
+}
+
+.faq-question-text {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.6;
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.faq-question-btn:hover .faq-question-text {
+  color: var(--pink);
+}
+
+.faq-indicator {
+  font-size: 22px;
+  color: var(--pink);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.faq-indicator.open {
+  transform: rotate(45deg);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+
+  .hero-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  .hero-inner > div:first-child {
+    align-items: center !important;
+  }
+  .features-row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .world-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .world-inner > div:last-child {
+    align-items: center !important;
+  }
+  .personas-row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .steps-col::before {
+    left: 20px;
+  }
+}
