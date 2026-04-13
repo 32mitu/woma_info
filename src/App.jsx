@@ -92,8 +92,6 @@ export default function App() {
         <div className="blob" style={{ width: 450, height: 450, background: 'var(--blue)', bottom: -80, left: -120, opacity: 0.22 }} />
         <div className="blob" style={{ width: 350, height: 350, background: 'var(--pink)', top: '45%', left: '55%', opacity: 0.13 }} />
 
-        <FloatingBubble text="きょうも、ええ日やね〜" x="6%" y="24%" delay={0} />
-        <FloatingBubble text="むりせんでええんよ" x="76%" y="16%" delay={1.5} />
         <FloatingBubble text="ちょっとだけ、でじゅうぶん🌱" x="70%" y="70%" delay={3} />
 
         <div
@@ -391,78 +389,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ━━━ Testimonials ━━━ */}
-      <section
-        id="voice"
-        style={{
-          padding: '100px clamp(24px,6vw,80px)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          position: 'relative',
-          overflow: 'hidden',
-          background: 'linear-gradient(180deg, var(--cream) 0%, #fff 50%, var(--cream) 100%)',
-        }}
-      >
-        <div className="blob" style={{ width: 480, height: 480, background: 'var(--pink-light)', top: -80, left: '30%', opacity: 0.2 }} />
-
-        <span className="section-label" style={{ marginBottom: 12 }}>VOICE</span>
-        <div className="gradient-line" style={{ marginBottom: 16 }} />
-        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: 16 }}>
-          使った人の<span className="gradient-text">ひとこと</span>
-        </h2>
-        <p className="section-sub" style={{ textAlign: 'center', marginBottom: 48 }}>
-          「続かなかった」が、「続いてる」に変わった人たちの声。
-        </p>
-
-        <div style={{ display: 'flex', gap: 24, maxWidth: 1040, width: '100%', flexWrap: 'wrap', justifyContent: 'center', zIndex: 2 }}>
-          <TestimonialCard
-            avatar="🌸" name="もも（28歳）" role="デスクワーク / 運動苦手歴10年"
-            quote="「今日もできなかった」って毎晩落ち込んでたのに、WOMAは「なにもしてへん日も記録できる」って知って、気持ちがすごくラクになった。3ヶ月続いてる、はじめてかも。"
-            delay={0}
-          />
-          <TestimonialCard
-            avatar="☁️" name="ゆか（34歳）" role="育児中 / 自由時間ほぼゼロ"
-            quote="子どもが寝た後、1分だけストレッチして記録する。それだけなのに、あもうが「今日もえらかったなぁ」って言ってくれる。その一言がめちゃくちゃ刺さる。"
-            delay={0.12}
-          />
-          <TestimonialCard
-            avatar="🌿" name="さとし（31歳）" role="在宅ワーク / メンタル回復中"
-            quote="ダイエットアプリは全部、数値で追い詰められてやめてた。WOMAは「体重関係ない」ってスタンスが本当に助かった。自分を責めなくなってきた気がする。"
-            delay={0.24}
-          />
-        </div>
-
-        {/* 総合スコア帯 */}
-        <div
-          style={{
-            marginTop: 56,
-            display: 'flex',
-            gap: 48,
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            padding: '32px 48px',
-            background: 'rgba(255,255,255,0.72)',
-            backdropFilter: 'blur(12px)',
-            borderRadius: 24,
-            border: '1px solid rgba(250,225,231,0.5)',
-            zIndex: 2,
-          }}
-        >
-          {[
-            { num: '4.9', label: 'App Store 評価', sub: '★★★★★' },
-            { num: '87%', label: '継続率（3ヶ月）', sub: '他社比 +41%' },
-            { num: '2.3万', label: 'ダウンロード数', sub: 'リリース1ヶ月' },
-          ].map(({ num, label, sub }) => (
-            <div key={label} style={{ textAlign: 'center', minWidth: 120 }}>
-              <div style={{ fontSize: 36, fontWeight: 900, color: 'var(--pink)', lineHeight: 1.2 }}>{num}</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--navy)', marginTop: 6 }}>{label}</div>
-              <div style={{ fontSize: 11, color: 'var(--color-text-sub)', marginTop: 2 }}>{sub}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ━━━ amow's World ━━━ */}
       <section
         id="world"
@@ -590,7 +516,7 @@ export default function App() {
         >
           <FaqItem
             question="無料で使えますか？"
-            answer="はい、基本機能は完全無料で使えるよ。毎日の記録、あもうの声かけ、ゆる運動の提案、ぜんぶ無料。プレミアムプランでより詳しい振り返りやスペシャルなあもうメッセージが届くようになるよ。"
+            answer="はい、WOMAは完全無料で使えるよ。毎日の記録、あもうの声かけ、ゆる運動の提案、ぜんぶ無料やで。"
           />
           <FaqItem
             question="運動がきらいでも大丈夫ですか？"
@@ -601,138 +527,10 @@ export default function App() {
             answer="ぜんぜん必要ないよ。WOMAは体重もカロリーも入力しないアプリ。「今日のからだの感じ」とか「気分」だけで記録できる設計になってる。数値よりも、自分のことを「えらい」って思える感覚を大切にしてるよ。"
           />
           <FaqItem
-            question="iOS・Androidどちらでも使えますか？"
-            answer="App StoreとGoogle Play、両方で公開してるよ。スマートフォンがあればどちらでもダウンロードできる。"
+            question="iPhoneでも使えますか？"
+            answer="App Storeで公開してるよ。iPhoneがあればダウンロードできるよ。"
           />
         </div>
-      </section>
-
-      {/* ━━━ Pricing ━━━ */}
-      <section
-        id="pricing"
-        style={{
-          padding: '100px clamp(24px,6vw,80px)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          position: 'relative',
-          overflow: 'hidden',
-          background: 'linear-gradient(180deg, #fff 0%, var(--cream) 100%)',
-        }}
-      >
-        <div className="blob" style={{ width: 450, height: 450, background: 'var(--blue)', bottom: -100, left: -80, opacity: 0.1 }} />
-
-        <span className="section-label" style={{ marginBottom: 12 }}>PRICING</span>
-        <div className="gradient-line" style={{ marginBottom: 16 }} />
-        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: 12 }}>
-          <span className="gradient-text">無料</span>ではじめて、<br />好きになったらプレミアムへ
-        </h2>
-        <p className="section-sub" style={{ textAlign: 'center', marginBottom: 52 }}>
-          まず試してみて。むりして課金しなくていいよ。
-        </p>
-
-        <div style={{ display: 'flex', gap: 24, maxWidth: 760, width: '100%', flexWrap: 'wrap', justifyContent: 'center', zIndex: 2, alignItems: 'flex-start' }}>
-          {/* 無料プラン */}
-          <div
-            style={{
-              flex: '1 1 300px',
-              maxWidth: 360,
-              background: 'var(--color-surface)',
-              backdropFilter: 'blur(12px)',
-              borderRadius: 28,
-              padding: '36px 32px',
-              border: '1px solid rgba(250,225,231,0.5)',
-              boxShadow: '0 4px 24px rgba(48,50,79,0.04)',
-            }}
-          >
-            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-text-sub)', letterSpacing: '0.1em', marginBottom: 8 }}>FREE</div>
-            <div style={{ fontSize: 40, fontWeight: 900, color: 'var(--navy)', lineHeight: 1.2, marginBottom: 4 }}>¥0</div>
-            <div style={{ fontSize: 13, color: 'var(--color-text-sub)', marginBottom: 28 }}>ずっと無料</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 32 }}>
-              {[
-                '毎日の気持ち記録',
-                'あもうの声かけ（1日1回）',
-                'ゆる運動の提案（3種類/日）',
-                '直近7日間の振り返り',
-                'あもうのスタンプ（基本セット）',
-              ].map((item) => (
-                <div key={item} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 13, color: 'var(--navy)', lineHeight: 1.6 }}>
-                  <span style={{ color: 'var(--blue)', flexShrink: 0, marginTop: 2, fontWeight: 700 }}>✓</span>
-                  {item}
-                </div>
-              ))}
-            </div>
-            <button
-              className="cta-primary"
-              style={{ width: '100%', justifyContent: 'center', background: 'var(--navy)', backgroundImage: 'none', animation: 'none' }}
-            >
-              無料ではじめる
-            </button>
-          </div>
-
-          {/* プレミアムプラン */}
-          <div
-            style={{
-              flex: '1 1 300px',
-              maxWidth: 360,
-              background: 'var(--color-surface)',
-              backdropFilter: 'blur(12px)',
-              borderRadius: 28,
-              padding: '36px 32px',
-              border: '2px solid rgba(243,168,187,0.6)',
-              boxShadow: '0 8px 40px rgba(243,168,187,0.2)',
-              position: 'relative',
-            }}
-          >
-            {/* おすすめバッジ */}
-            <div
-              style={{
-                position: 'absolute',
-                top: -14,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                background: 'var(--gradient-brand)',
-                color: '#fff',
-                fontSize: 11,
-                fontWeight: 700,
-                padding: '5px 18px',
-                borderRadius: 20,
-                letterSpacing: '0.08em',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              🐿️ おすすめ
-            </div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--pink)', letterSpacing: '0.1em', marginBottom: 8 }}>PREMIUM</div>
-            <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, marginBottom: 4 }}>
-              <span style={{ fontSize: 40, fontWeight: 900, color: 'var(--navy)', lineHeight: 1.2 }}>¥480</span>
-              <span style={{ fontSize: 13, color: 'var(--color-text-sub)', marginBottom: 8 }}>/月</span>
-            </div>
-            <div style={{ fontSize: 13, color: 'var(--color-text-sub)', marginBottom: 28 }}>年払いで¥3,980（34%お得）</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 32 }}>
-              {[
-                '無料プランのすべて',
-                'あもうの声かけ（無制限）',
-                'ゆる運動の提案（全種類）',
-                '過去すべての振り返り',
-                'プレミアムスタンプ（季節限定含む）',
-                'あもうのスペシャルメッセージ',
-              ].map((item, i) => (
-                <div key={item} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 13, color: 'var(--navy)', lineHeight: 1.6 }}>
-                  <span style={{ color: i === 0 ? 'var(--blue)' : 'var(--pink)', flexShrink: 0, marginTop: 2, fontWeight: 700 }}>✓</span>
-                  {item}
-                </div>
-              ))}
-            </div>
-            <DownloadButton style={{ width: '100%', justifyContent: 'center' }}>
-              プレミアムではじめる
-            </DownloadButton>
-          </div>
-        </div>
-
-        <p style={{ marginTop: 28, fontSize: 12, color: 'var(--color-text-sub)', textAlign: 'center', lineHeight: 1.8 }}>
-          いつでもキャンセルOK。解約しても無料プランで使い続けられるよ。
-        </p>
       </section>
 
       {/* ━━━ Download CTA ━━━ */}

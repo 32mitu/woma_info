@@ -204,7 +204,7 @@ export function ScrollIndicator() {
 }
 
 /**
- * App Store / Google Play バッジペア
+ * App Store バッジ
  */
 export function StoreBadges() {
   return (
@@ -215,12 +215,6 @@ export function StoreBadges() {
           <path d="M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11" />
         </svg>
         App Store
-      </div>
-      <div className="store-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zM14.852 13.06l2.36 2.36-10.68 6.07 8.32-8.43zM18.442 10.39l2.638 1.5a1 1 0 010 1.74l-2.638 1.5-2.59-2.63 2.59-2.11zM6.532 3.51l10.68 6.07-2.36 2.36-8.32-8.43z" />
-        </svg>
-        Google Play
       </div>
     </div>
   )
