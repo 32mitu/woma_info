@@ -59,7 +59,7 @@ export default function App() {
           style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}
           onClick={() => scrollTo('top')}
         >
-          <AmowPlaceholder size={32} />
+          <AmowPlaceholder size={32} src="/amow-run.png" />
           <span style={{ fontSize: 20, fontWeight: 900, letterSpacing: '0.08em' }}>WOMA</span>
         </div>
         <nav style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
@@ -92,7 +92,6 @@ export default function App() {
         <div className="blob" style={{ width: 450, height: 450, background: 'var(--blue)', bottom: -80, left: -120, opacity: 0.22 }} />
         <div className="blob" style={{ width: 350, height: 350, background: 'var(--pink)', top: '45%', left: '55%', opacity: 0.13 }} />
 
-        <FloatingBubble text="ちょっとだけ、でじゅうぶん🌱" x="70%" y="70%" delay={3} />
 
         <div
           className="hero-inner"
@@ -408,7 +407,7 @@ export default function App() {
         <div className="world-inner" style={{ display: 'flex', alignItems: 'center', gap: 'clamp(40px,6vw,80px)', maxWidth: 960, width: '100%', zIndex: 2 }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, flexShrink: 0 }}>
             <div style={{ animation: 'amowBreathe 5s ease-in-out infinite' }}>
-              <AmowPlaceholder size={200} label="amow イラスト" />
+              <AmowPlaceholder size={200} src="/amow-main.png" />
             </div>
             <div
               style={{
@@ -551,7 +550,7 @@ export default function App() {
         <div className="blob" style={{ width: 600, height: 600, background: 'var(--pink-light)', top: -200, left: '50%', transform: 'translateX(-50%)', opacity: 0.22 }} />
         <div className="blob" style={{ width: 300, height: 300, background: 'var(--blue)', bottom: -50, right: -50, opacity: 0.12 }} />
 
-        <AmowPlaceholder size={90} />
+        <AmowPlaceholder size={90} src="/amow-sleep.png" />
         <h2 className="section-title" style={{ marginTop: 20, marginBottom: 12 }}>
           はじめよう、<br />
           <span className="gradient-text">やさしい毎日。</span>
@@ -578,42 +577,47 @@ export default function App() {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <AmowPlaceholder size={28} />
+          <AmowPlaceholder size={28} src="/amow-run.png" />
           <span style={{ fontWeight: 900, fontSize: 16, letterSpacing: '0.06em' }}>WOMA</span>
         </div>
 
         <div style={{ display: 'flex', gap: 24, fontSize: 12, color: 'var(--color-text-sub)' }}>
-          {['利用規約', 'プライバシーポリシー', 'お問い合わせ'].map((t) => (
-            <a key={t} href="#" style={{ color: 'inherit', textDecoration: 'none' }}>{t}</a>
-          ))}
+          <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>利用規約</a>
+          <a href="https://note.com/kumaotoko32/n/ned99f2c17b7c" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>プライバシーポリシー</a>
+          <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>お問い合わせ</a>
         </div>
 
         <div style={{ display: 'flex', gap: 12 }}>
-          {[
-            { label: '𝕏' },
-            {
-              label: (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
-                </svg>
-              ),
-            },
-          ].map((item, i) => (
-            <a
-              key={i}
-              href="#"
-              style={{
-                width: 36, height: 36, borderRadius: '50%',
-                background: 'var(--pink-light)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'var(--navy)', textDecoration: 'none', fontSize: 14,
-              }}
-            >
-              {item.label}
-            </a>
-          ))}
+          <a
+            href="https://x.com/app_woma"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              width: 36, height: 36, borderRadius: '50%',
+              background: 'var(--pink-light)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: 'var(--navy)', textDecoration: 'none', fontSize: 14,
+            }}
+          >
+            𝕏
+          </a>
+          <a
+            href="https://www.instagram.com/app.woma?igsh=Z2l5MHpzenAxMjhx"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              width: 36, height: 36, borderRadius: '50%',
+              background: 'var(--pink-light)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: 'var(--navy)', textDecoration: 'none', fontSize: 14,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
         </div>
       </footer>
 

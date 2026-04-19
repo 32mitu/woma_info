@@ -1,72 +1,28 @@
 import { useState, useEffect, useRef } from 'react'
 
 /**
- * デザイナー用プレースホルダー — amow（りす）イラスト
- * 実際のイラストが入ったら <img> に差し替え
+ * amow（りす）イラスト
  */
-export function AmowPlaceholder({ size = 120, label = 'amow' }) {
+export function AmowPlaceholder({ size = 120, src = '/amow-main.png' }) {
   return (
-    <div
-      style={{
-        width: size,
-        height: size,
-        borderRadius: '50%',
-        border: '2px dashed var(--pink)',
-        background: 'rgba(250,225,231,0.3)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: size > 60 ? 6 : 2,
-        flexShrink: 0,
-      }}
-    >
-      <span style={{ fontSize: Math.max(size * 0.22, 12), opacity: 0.55 }}>🐿️</span>
-      {size > 50 && (
-        <span
-          style={{
-            fontSize: Math.max(size * 0.09, 9),
-            color: 'var(--pink)',
-            letterSpacing: '0.04em',
-          }}
-        >
-          {label}
-        </span>
-      )}
-    </div>
+    <img
+      src={src}
+      alt="amow"
+      style={{ width: size, height: size, objectFit: 'contain', flexShrink: 0 }}
+    />
   )
 }
 
 /**
- * デザイナー用プレースホルダー — アプリ画面モックアップ
- * 実際のスクリーンショットが入ったら <img> に差し替え
+ * アプリ画面モックアップ
  */
 export function PhoneMockup() {
   return (
-    <div
-      style={{
-        width: 260,
-        height: 480,
-        borderRadius: 36,
-        border: '2px dashed rgba(147,194,232,0.55)',
-        background: 'rgba(253,251,240,0.45)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 16,
-        flexShrink: 0,
-      }}
-    >
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.5" strokeLinecap="round">
-        <rect x="5" y="2" width="14" height="20" rx="3" />
-        <line x1="12" y1="18" x2="12" y2="18.01" strokeWidth="2" />
-      </svg>
-      <span style={{ fontSize: 13, color: 'var(--blue)', textAlign: 'center', lineHeight: 1.6 }}>
-        アプリ画面<br />
-        <span style={{ fontSize: 11, opacity: 0.7 }}>※デザイナー作成</span>
-      </span>
-    </div>
+    <img
+      src="/app-screen.png"
+      alt="WOMAアプリ画面"
+      style={{ width: 260, borderRadius: 36, flexShrink: 0, objectFit: 'contain' }}
+    />
   )
 }
 
@@ -209,13 +165,19 @@ export function ScrollIndicator() {
 export function StoreBadges() {
   return (
     <div style={{ display: 'flex', gap: 10 }}>
-      <div className="store-badge">
+      <a
+        href="https://apps.apple.com/jp/app/woma/id6756561211"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="store-badge"
+        style={{ textDecoration: 'none' }}
+      >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83" />
           <path d="M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11" />
         </svg>
         App Store
-      </div>
+      </a>
     </div>
   )
 }
@@ -456,11 +418,17 @@ export function FaqItem({ question, answer }) {
  */
 export function DownloadButton({ children, style }) {
   return (
-    <button className="cta-primary" style={style}>
+    <a
+      href="https://apps.apple.com/jp/app/woma/id6756561211"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="cta-primary"
+      style={{ textDecoration: 'none', ...style }}
+    >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
         <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
       </svg>
       {children}
-    </button>
+    </a>
   )
 }
